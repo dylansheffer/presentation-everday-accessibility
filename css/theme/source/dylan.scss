@@ -1,0 +1,269 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+@import "../template/branding";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: $main-bg-color;
+
+$mainColor: $white-color;
+$headingColor: $yellow-color;
+
+$mainFontSize: 42px;
+$mainFont: $monospace-font;
+$headingFont: $monospace-font;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: $heading-fontweight;
+$linkColor: $green-color;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+$subheading2Size: 1.2em;
+$subheading3Size: 0.9em;
+$subheading4Size: 0.6em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: $main-bg-color;
+	}
+}
+
+// My Custom Modifications ------------------------------
+.reveal {
+	// Global Styles
+	h1 {
+		&::before {
+			content: "# ";
+		}
+	 }
+	h2 {
+		&::before {
+			content: "## ";
+		}
+	 }
+	h3 {
+		&::before {
+			content: "### ";
+		}
+	 }
+	h4 {
+		&::before {
+			content: "#### ";
+		}
+	 }
+
+	 h2.subheading  {
+		font-size: $subheading2Size;
+		color: $orange-color;
+
+	 }
+	h3.subheading  {
+		font-size: $subheading3Size;
+		color: $green-color;
+
+	 }
+	h4.subheading  {
+		font-size: $subheading4Size;
+		color: $purple-color;
+	 }
+
+	 h1.no-markdown {
+		&::before {
+			content: "";
+		}
+	 }
+	h2.no-markdown {
+		&::before {
+			content: "";
+		}
+	 }
+	h3.no-markdown {
+		&::before {
+			content: "";
+		}
+	 }
+	h4.no-markdown {
+		&::before {
+			content: "";
+		}
+	 }
+
+	pre {
+		border-style: solid;
+		border-width: 46px;
+		border-color: $main-bg-color;
+		font-size: 110%;
+		border-radius: 24px;
+		width: 80%;
+	}
+
+	code {
+		overflow: auto;
+	}
+
+	img {
+		max-width: 700px;
+	}
+
+	// Helper Styles
+
+	.grid-columns {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	}
+
+	.grid-rows {
+		display: grid;
+		grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+		grid-gap: 30px;
+	}
+
+	.flex-row {
+	  display: flex;
+	}
+
+	.flex-column {
+	  display: flex;
+	  flex-direction: column;
+	}
+
+	.content-center {
+	  align-items: center;
+	  justify-content: center;
+	}
+
+	.justify-space-around {
+		justify-content: space-around;
+	}
+
+	.center {
+	  align-self: center;
+	  justify-self: center;
+	}
+
+	.circle-img {
+		border-radius: 500px;
+	}
+
+	.med-img {
+		max-width: 300px;
+	}
+
+	.slide-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	}
+
+	.small-text {
+		font-size: 0.5em;
+	}
+
+	.medium-text {
+		font-size: 0.8em;
+	}
+
+	.large-text {
+		font-size: 1.5em;
+	}
+
+	.small-img {
+		width: 300px;
+	}
+
+	.medium-img {
+		max-width: 500px;
+    	max-height: 350px;
+	}
+
+	.large-img {
+		width: 700px;
+	}
+
+	// Component Styles
+
+	.social {
+		margin: 0;
+		justify-content: space-around;
+		list-style-type: none;
+		width: 100%;
+	}
+
+	// Slide Specific
+
+	.slide__pillars-of-a11y {
+		.pillars {
+			width: 100%;
+			justify-content: space-around;
+			list-style: none;
+			margin: 30px 0;
+		}
+		.pillars-of-a11y__content {
+			display: grid;
+			grid-template-rows: 1fr 4fr;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 30px;
+		}
+	}
+
+	.slide__disability-type {
+		.list {
+			p {
+				max-width: 400px;
+				text-align: center;
+				align-self: center;
+			}
+		}
+	}
+
+	.slide__assistive-tech {
+		.tools {
+			margin: 50px auto;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: 30px;
+			justify-content: center;
+			align-items: center;
+			h4 {
+				&::before {
+					content: '';
+				}
+			}
+			.tool {
+				max-width: 300px;
+				min-height: 300px;
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+
+}
+
+// ---------------------------------------------
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

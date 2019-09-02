@@ -1,0 +1,83 @@
+/*
+
+Monokai Pro. Derived from Monokai.pro by Monokai https://www.monokai.pro/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #2d2a2e;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #fcfcfa;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #727072;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ab9df2;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a9dc76;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #ff6188;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #78dce8;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #fcfcfa;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #f8c555;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #727072;
+}

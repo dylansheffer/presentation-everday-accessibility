@@ -1,0 +1,697 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Accessibility Isn't Inaccessible!</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/dylan.css" id="theme">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	 crossorigin="anonymous">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai-pro.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+			<div class="slides">
+
+				<!-- Introduction -->
+				<section>
+					<div class="grid-rows">
+						<div>
+							<img class="circle-img med-img" src="resources/me-500px.jpg" alt="" />
+						</div>
+						<h1>Dylan Sheffer</h1>
+						<ul class="flex-row content-center social">
+							<li><i class="fab fa-twitter"></i> @DylanSheffer</li>
+							<li><i class="fab fa-twitch"></i> DylanSheffer</li>
+							<li><i class="fab fa-slack"></i> DylanSheffer</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Title -->
+				<section>
+					<div class="">
+						<h1>Accessibility Isn't Inaccessible!</h1>
+					</div>
+					<aside class="notes">
+						The motivation behind this talk is that people believe that a11y is hard, but it actually just requires a different way of thinking.
+					</aside>
+				</section>
+
+				<section>
+					<h1>Overview</h1>
+					<ol>
+						<li class="fragment">What it is and why it is important</li>
+						<li class="fragment">Foundational knowledge</li>
+						<li class="fragment">How assistive tech interprets our sites</li>
+						<!-- <li class="fragment">My way of approaching accessibility design problems</li> -->
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<div>
+							<h1>What is Accessibility?</h1>
+						</div>
+					</section>
+					<section>
+						<div>
+							<blockquote>Making your site usable by everybody regardless of ability.</blockquote>
+							<div class="flex-row justify-space-around">
+								<p class="fragment">Increase <br> Customer Pool</p>
+								<p class="fragment">No Lawsuits</p>
+								<p class="fragment">Better UX</p>
+							</div>
+						</div>
+						<aside class="notes">
+							Making your site usable for everyone has many benefits outside of creating a more inclusive experience.
+							<br>
+							There are also...
+							<ol>
+								<li>financial benefits from increasing potential customer base</li>
+								<li>removes the possibility of a lawsuit for discriminatory practices</li>
+								<li>increases the overall usability of your site</li>
+							</ol>
+						</aside>
+					</section>
+					<section class="slide__pillars-of-a11y" data-transition="none slide-out">
+						<h2>The 3 Pillars of Accessible Programming</h2>
+						<br>
+						<div class="pillars-of-a11y__content fragment" data-fragment-index="1">
+							<!-- <ul class="flex-row pillars fragment" data-fragment-index="1"> -->
+								<p class="fragment highlight-current-blue grow" data-fragment-index="2">Awareness</p>
+								<p class="fragment highlight-current-blue grow" data-fragment-index="3">Context</p>
+								<p class="fragment highlight-current-blue grow" data-fragment-index="4">Empathy</p>
+							<!-- </ul> -->
+							<!-- <div class=""> -->
+								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="2">Awareness of disabilities, available
+									technology, how assistive tech is used, and the tools available to us.</p>
+								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="3">Realizing what we are trying to convey
+									to the end user in the given context.</p>
+								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="4">Putting one's self in the shoes of
+									different people, so we may create more tailored experiences</p>
+							<!-- </div> -->
+						</div>
+						<aside class="notes">
+							Accessible development isn't about just following checklists and technical specs. It's just a change in mindset when creating digital experiences.
+
+							For the change in perspective, there are 3 main things one needs to be effective at a11y development. I call them the
+							"3 Pillars of A11y Programming".
+							<br>
+							<br>
+							...
+							<br>
+							<br>
+							The goal of my talk is to provide more awareness and to give context to potential problems, but empathy must come from within.
+						</aside>
+					</section>
+				</section>
+
+				<!-- Serious Section / Disclaimer -->
+				<section>
+					<section>
+						<h1>RealTalk</h1>
+					</section>
+					<section>
+						<p class="large-text ">It is critical we do this right</p>
+						<aside class="notes">
+							<ul>
+								<li>A11y isn't something we can debate about doing like using the latest javascript framework or using a new programming pattern.</li>
+								<li>It is all of our responsibility, as developers, that we ensure the preservation of a fundamental human right. The access to information and self expression.</li>
+								<li>Remember that all of us are only an accident or a few years of age from needing assistive technology in order live an independent lifestyle.</li>
+								<li>Let's at least ensure the infrastructure we have control over can accommodate everybody.</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+
+				<!-- Comedic Reset -->
+				<section>
+					<p>(Comedic Reset)</p>
+					<img style="width: 500px;" src="./resources/guy-noodle.gif" alt="Guy Fieri eating a noodle in reverse" />
+				</section>
+
+				<!-- WCAG -->
+				<section>
+					<section>
+						<h1>WCAG</h1>
+						<p class="fragment"><strong>Web Content Accessibility Guidelines</strong></p>
+						<p class="fragment">The official guidelines published by the W3C on how to make the web accessible.</p>
+						<div class="fragment">
+							<div><img src="resources/webaim.png" alt="Web AIM Logo"></div>
+							<p><a href="https://webaim.org/standards/wcag/checklist">Web AIM's WCAG Checklist</a></p>
+						</div>
+						<aside class="notes">
+							The WCAG is a dense read and I think it's one of the reasons why developers are intimidated by accessibility.
+							<br>
+							<br>
+							If you're struggling understanding what the WCAG is saying checkout the website webaim.org. It has a more digestible checklist of the WCAG.
+							<br>
+							<br>
+							... The main idea of the WCAG is that we need to make our websites P.O.U.R
+						</aside>
+					</section>
+					<section>
+						<h2>P.O.U.R</h2>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Perceivable</p>
+							<p class="fragment">Operable</p>
+							<p class="fragment">Understandable</p>
+							<p class="fragment">Robust</p>
+						</div>
+					</section>
+					<section>
+						<h3>Perceivable</h3>
+						<p>
+							Available to the senses either through the browser or through assistive technologies.
+						</p>
+						<aside class="notes">
+							Mainly through vision and hearing.
+
+							Assistive technologies include screen readers, screen enlargers, audio captions, etc.
+						</aside>
+					</section>
+					<section>
+						<h3>Operable</h3>
+						<p>
+							Users can interact with all controls and interactive elements using either the mouse, keyboard, or an assistive device.
+						</p>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h3>Understandable</h3>
+						<p>
+							Content is clear and limits confusion and ambiguity.
+						</p>
+						<!-- <div class="flex-row justify-space-around">
+							<div>
+								<h6>Good Example</h6>
+								<img class="medium-img" src="./resources/good-dialog-example.png" alt="modal with explicit actions for its buttons">
+							</div>
+							<div>
+								<h6>Bad Example</h6>
+								<img class="medium-img" src="./resources/bad-dialog-example.png" alt="modal with ambiguous actions for its buttons">
+							</div>
+						</div>
+						<p class="small-text">Image Source:
+							<a href="https://material.io/guidelines/components/dialogs.html#dialogs-alerts">Material.io</a></p> -->
+						<aside class="notes">
+							This includes using explicit language for dialog actions, using simple language for content, and to not completely rely on metaphors like icons and changing colors for information.
+						</aside>
+					</section>
+					<section>
+						<h3>Robust</h3>
+						<p>
+							A wide range of technologies and devices can access the content.
+						</p>
+
+						<aside class="notes">
+							Our sites need to be robust enough to be used in various contexts such as screen readers, screen enlargers, switches, etc.
+
+							An easy to to ensure this is to give many ways to accomplish common tasks like page navigation and search.
+						</aside>
+					</section>
+				</section>
+
+				<!-- Types of Disabilities -->
+				<section>
+					<!-- <section>
+						<p>Thank You WebAIM!</p>
+						<div>
+							<div><img src="resources/webaim.png" alt="Web AIM Logo"></div>
+							<p><a href="https://webaim.org/articles/">Web AIM's Articles</a></p>
+						</div>
+					</section> -->
+					<section>
+						<h1>Types of Disabilities</h1>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Motor</p>
+							<p class="fragment">Visual</p>
+							<p class="fragment">Auditory</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Cognitive</p>
+							<p class="fragment">Neurological</p>
+							<p class="fragment">Temporary</p>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section class="slide__disability-type">
+						<h2>Motor</h2>
+						<div class="flex-row justify-space-around list">
+							<p class="fragment">Paralysis</p>
+							<p class="fragment">Loss or damage of limbs</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Muscular Dystrophy</p>
+							<p class="fragment">Tremors</p>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h3>Accessibility Principle to Focus On</h3>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Operable</p>
+							<p>Not everyone can use a mouse, click on small links, or operate dynamic elements effectively</p>
+						</div>
+					</section>
+					<section class="slide__assistive-tech">
+						<h3>Assistive Tech for Motor Disabilities</h3>
+
+						<div class="tools" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr;">
+							<div class="tool">
+								<h4 class="small-text">Mouth Stick</h4>
+								<img src="./resources/mouth-stick.jpg" alt="Girl using a mouth stick" class="small-img">
+								<a href="https://www.bridgingapps.org/2011/10/ipad-mouthstick-stylus/" class="small-text">Bridging Apps</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Sip and Puff Switch</h4>
+								<img src="./resources/sip-puff.jpg" alt="Man using a sip and puff" class="small-img">
+								<a href="https://www.atandme.com/?p=1673" class="small-text">ATandMe</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Eye Tracking</h4>
+								<img src="./resources/eye-tracking.png" alt="Man using eye tracking head set" class="small-img">
+								<a href="https://est-kl.com/manufacturer/asl/h7-head-mounted-optics.html" class="small-text">EST</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Track Ball</h4>
+								<img src="./resources/track-ball.jpg" alt="Track ball mouse by AbleNet" class="small-img">
+								<a href="https://www.amazon.com/BIGtrack-2-0-Trackball-Buttons-12000006/dp/B0006ZM7VY" class="small-text">AbleNet</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Single-Action Switch</h4>
+								<img src="./resources/switch.jpg" alt="Various Switch Devices by AbleNet" class="small-img">
+								<a href="https://www.closingthegap.com/new-ios-11-switch-control-user-guide/" class="small-text">Closing The Gap</a>
+							</div>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+					<!-- <section>
+						<iframe width="960" height="540" src="https://www.youtube.com/embed/1ry_N_Bndh4?rel=0" frameborder="0" allow="autoplay; encrypted-media"
+						 allowfullscreen></iframe>
+					</section> -->
+					<section class="slide__disability-type">
+						<h2>Visual</h2>
+						<div class="flex-row justify-space-around list">
+							<p class="fragment">Eye shape deformities</p>
+							<p class="fragment">Blindness</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Low Vision</p>
+							<p class="fragment">Color Deficiencies</p>
+						</div>
+						<aside class="notes">
+
+						</aside>
+					</section>
+					<section>
+						<h3>Accessibility Principles to Focus On</h3>
+						<div class="fragment">
+							<p class="large-text">Perceivable</p>
+							<p>Cannot see visual information such as graphics, layout, or color-based cues</p>
+						</div>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Operable</p>
+							<p>Usually depend on a keyboard to navigate web content functionality, rather than a mouse</p>
+							<p class="small-text">
+								continued...
+							</p>
+						</div>
+					</section>
+					<section>
+						<h3>Accessibility Principles to Focus On</h3>
+						<div class="fragment">
+							<p class="large-text">Understandable</p>
+							<p>Cannot understand content that is presented in an illogical linear order</p>
+							<p>Contains text not meant to be read word for word</p>
+						</div>
+						<div class="fragment">
+							<p class="large-text">Robust</p>
+							<p>Not always capable of accessing a broad range of technologies</p>
+						</div>
+						<aside class="notes">
+							Understandable Examples: Web Addresses, putting content in weird DOM orders
+							<br>
+							Robust Examples: Browsers, new ARIA features
+						</aside>
+					</section>
+					<section class="slide__assistive-tech flex-column content-center">
+						<h3>Assistive Tech for Visual Disabilities</h3>
+
+						<div class="tools" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+							<div class="tool">
+								<h4 class="small-text">Braille Readers</h4>
+								<img src="./resources/braille-reader.jpg" alt="Person using Braille Reader" class="small-img">
+								<a href="http://www.webaxe.org/assistive-technology-surveys/" class="small-text">Web Axe</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Screen Enlarger</h4>
+								<img src="./resources/screen-magnifier.jpg" alt="Windows 7 Screen Magnifier" class="small-img">
+								<a href="http://www.blinddmobiel.be/nl/hulpmiddelen/alfabetisch-overzicht/detail/oplossingen-voor-de-blinde-of-slechtziende-windows-gebruiker" class="small-text">BlinddMobiel</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Color Correcting Glasses</h4>
+								<img src="./resources/color-correcting-glasses.jpg" alt="Demonstration of how the world looks through color correcting glasses" class="small-img">
+								<a href="https://www.allaboutvision.com/conditions/color-blind-glasses.htm" class="small-text">All About Vision</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Screen Readers</h4>
+								<img src="./resources/screen-reader.jpg" alt="Voice Over Screen Reader" class="small-img">
+								<a href="http://atmac.org/voiceover-mac-wont-stop-talking" class="small-text">ATMac</a>
+							</div>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section class="slide__disability-type">
+						<h2>Auditory</h2>
+						<div class="flex-row justify-space-around list">
+							<p class="fragment">Conductive Hearing Loss</p>
+							<p class="fragment">Neural hearing loss</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">High tone hearing loss</p>
+							<p class="fragment">Low tone hearing loss</p>
+						</div>
+						<aside class="notes">
+							Like vision, auditory disabilities are varied between degrees of hearing impairment. Some things to think about though are the different types of auditory deficiencies
+						</aside>
+					</section>
+					<section>
+						<h3>Accessibility Principles to Focus On</h3>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Perceivable</p>
+							<p>Cannot hear auditory content</p>
+						</div>
+					</section>
+					<section class="slide__assistive-tech flex-column content-center">
+						<h3>Assistive Tech for Auditory Disabilities</h3>
+
+						<div class="tools">
+							<div class="tool">
+								<h4 class="small-text">Captions</h4>
+								<img src="./resources/captions.jpg" alt="Audio Captions on Video" class="small-img">
+								<a href="https://captionaction2.blogspot.com/2013/03/yahoo-starts-captioning-but.html" class="small-text">Caption Action</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">FM Transmitter / Receiver</h4>
+								<img src="./resources/fm-reciever.jpg" alt="People listening with FM Receiver" class="small-img">
+								<a href="https://metrosoundpros.com/commercial/1679/Assistive-Listening"
+								 class="small-text">Metro Sound Pros</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Hearing Aids</h4>
+								<img src="./resources/hearing-aids.jpg" alt="Woman wearing hearing aid"
+								 class="small-img">
+								<a href="http://hearingaidbuyertoday.com/facts-cost-hearing-aids/" class="small-text">Hearing Aid Buyer Today</a>
+							</div>
+							<div class="tool">
+								<h4 class="small-text">Real Time Transcription</h4>
+								<img src="./resources/real-time-transcription.jpg" alt="Man transcribing event in real time" class="small-img">
+								<a href="https://www.24hrsls.com/computer-assisted-real-time-translation/" class="small-text">24 Hour Sign Language Services</a>
+							</div>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section class="slide__disability-type">
+						<h2>Cognitive</h2>
+						<div class="flex-row justify-space-around list">
+							<p class="fragment">Memory</p>
+							<p class="fragment">Problem-Solving</p>
+							<p class="fragment">Attention</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">Language Comprehension</p>
+							<p class="fragment">Math Comprehension</p>
+							<p class="fragment">Visual Comprehension</p>
+						</div>
+						<aside class="notes">
+							Cognitive disabilities are some of the most diverse cases because they can be very specific and can at times conflict with one another.
+							<br>
+							Example: Language comprehension disability would do best with icons on a site to navigate, but person with visual comprehension disability may struggle understanding what the icon represents.
+						</aside>
+					</section>
+					<section>
+						<h3>Accessibility Principles to Focus On</h3>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Perceivable</p>
+							<p>Distracting banner ads can take attention from content</p>
+						</div>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Operable</p>
+							<p>Shouldn't depend on remembering information</p>
+							<p class="small-text">continued...</p>
+						</div>
+					</section>
+					<section>
+						<h3>Accessibility Principles to Focus On</h3>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Understandable</p>
+							<p>Not able to understand what an icon represents on a page.</p>
+						</div>
+						<br>
+						<div class="fragment">
+							<p class="large-text">Robust</p>
+							<p>Site sometimes loaded into "Reader" views</p>
+						</div>
+						<aside class="notes">
+							The best way to optimize for cognitive disabilities is to
+							<ul>
+								<li>provide many different ways to accomplish the important tasks on the website</li>
+								<li>present information in a few different ways</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="slide__disability-type">
+						<h2>Neurological</h2>
+						<div style="margin: 75px auto;" class="flex-row justify-space-around list">
+							<div class="flex-column">
+								<h3 class="fragment" data-fragment-index="1">Seizures</h3>
+								<p class="fragment" data-fragment-index="3">Avoid flashing between high contrast colors quickly</p>
+							</div>
+							<div class="flex-column">
+								<h3 class="fragment" data-fragment-index="2">Vestibular <br> disorders</h3>
+								<p class="fragment" data-fragment-index="4">Avoid intense animation and paralax backgrounds</p>
+							</div>
+						</div>
+						<br>
+						<br>
+						<div class="flex-row justify-space-around list">
+						</div>
+					</section>
+					<section class="slide__disability-type">
+						<h2>Temporary</h2>
+						<div class="flex-row justify-space-around list">
+							<p class="fragment">Holding a New Born while typing</p>
+							<p class="fragment">Reading phone in bright sunlight</p>
+							<p class="fragment">Watching Netflix in class</p>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>How does assistive tech work with websites?</h1>
+					</section>
+					<section>
+						<h2>Accessibility Tree</h2>
+						<div class="fragment">
+							<p>A tree representation of the webpage that contains all meta-data about every page element.</p>
+							<div>
+								<img src="./resources/a11y-tree.png" alt="Accessibility Tree of a form">
+							</div>
+						</div>
+						<aside class="notes">
+							What the browser does is when it parses an HTML document, it creates both the DOM and the Accessibility Tree.
+							<br>
+							assistive tech uses the Accessibility API in order to interact with the sites
+						</aside>
+					</section>
+					<section>
+						<h3>What Assistive Tech Sees from the Tree</h3>
+						<div class="flex-row justify-space-around">
+							<p class="fragment">
+								Name
+							</p>
+							<p class="fragment">
+								State
+							</p>
+							<p class="fragment">
+								Role
+							</p>
+							<p class="fragment">
+								Value
+							</p>
+						</div>
+					</p>
+					</section>
+				</section>
+				<!-- <section>
+					<section>
+						<h1>My A11y Design Process</h1>
+					</section>
+					<section>
+						<h2>Extract Main Site Activities</h2>
+						<p class="fragment">Example: Blog Site</p>
+						<ul class="fragment">
+							<li>Reading</li>
+							<li>Clicking Links</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Put yourself in another's shoes</h2>
+						<br>
+						<p class="fragment">Approach the activity on your site as if you had that disability.</p>
+						<br>
+						<p class="fragment">Example: Clicking links in the navigation but we have tremors</p>
+					</section>
+					<section>
+						<h3>Current Navigation</h3>
+						<iframe width="960" height="200" src="/small-navigation.html"></iframe>
+						<h4 class="fragment">Problems</h4>
+						<br>
+						<ul class="fragment">
+							<li>Text is too small</li>
+							<li>Links are too close together</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Better Navigation</h3>
+						<iframe width="960" height="200" src="/better-navigation.html"></iframe>
+						<h4 class="fragment">Other Cases Addressed</h4>
+						<ul>
+							<li class="fragment">People with Low Vision</li>
+							<li class="fragment">People with Limited Dexterity</li>
+						</ul>
+						<aside class="notes">
+							This seem like a whole lot of extra work, but...
+							<ul>
+								<li>like much of software testing, a lot of cases become second nature</li>
+								<li>doing this exercise often will cover many different cases at once</li>
+								<li>Often, it also results in a better user experience overall</li>
+							</ul>
+						</aside>
+					</section>
+				</section> -->
+				<section>
+					<p class="large-text">Accessibility isn't Inaccessible</p>
+					<ul>
+						<li class="fragment">Awareness</li>
+						<li class="fragment">Context</li>
+						<li class="fragment">Empathy</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Thank You!</h1>
+					<br>
+					<p class="large-text fragment">Questions⁉</p>
+				</section>
+				<section>
+					<h1>Tools and Resources</h1>
+					<ul>
+						<li class="small-text"><a href="https://inclusive-components.design/">Heydon Pickering- Inclusive Components</a></li>
+						<li class="small-text"><a href="https://abookapart.com/products/accessibility-for-everyone">Laura Kalbag- Accessibility For Everyone</a></li>
+						<li class="small-text"><a href="https://webaim.org/">WebAIM - Excellent Guides and Articles</a></li>
+						<li class="small-text"><a href="https://www.deque.com/">Excellent Tools, webinars, guides, podcasts, etc</a></li>
+						<li class="small-text"><a href="https://www.youtube.com/watch?v=Ag3DMNbL_ig&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g">A11y Cast with Rob Dodson</a></li>
+						<li class="small-text"><a href="https://developers.google.com/web/fundamentals/accessibility/">Google Developer Accessibility Docs</a></li>
+						<li class="small-text"><a href="https://ebay.gitbooks.io/oatmeal/content/">OATMEAL - EBay's Open Accessibility Guidelines</a></li>
+						<li class="small-text"><a href="https://a11yproject.com/checklist">A11y Project - Beginners Checklist</a></li>
+						<li class="small-text"><a href="https://www.deque.com/axe/">aXe Accessibility Audit Plugin</a></li>
+						<li class="small-text"><a href="https://squizlabs.github.io/HTML_CodeSniffer/">HTML Code Sniffer</a></li>
+						<li class="small-text"><a href="https://incl.ca/archives/">Part of a Whole Blog</a></li>
+						<li class="small-text"><a href="https://ui.reach.tech/">Reach - Accessible React Components</a></li>
+						<li class="small-text"><a href="https://bulbenergy.github.io/bulb-audit/">Bulb Audit - Open Sourced Professional A11y Audit</a></li>
+						<li class="small-text"><a href="http://colorsafe.co/">Color Safe - A11y Color Pallet Generator</a></li>
+						<li class="small-text"><a href="https://accessibility.18f.gov/">18f - A11y Guide</a></li>
+						<li class="small-text"><a href="http://chromelens.xyz/">Color Blindness Simulator for Chrome</a></li>
+					</ul>
+				</section>
+			</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: "100%",
+				height: "100%",
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 1,
+				// maxScale: 1,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+</body>
+
+</html>
