@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Accessibility Isn't Inaccessible!</title>
+	<title>Everyday Accessibility</title>
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -57,20 +57,21 @@
 				<!-- Title -->
 				<section>
 					<div class="">
-						<h1>Accessibility Isn't Inaccessible!</h1>
+						<h1>Everyday Accessibility</h1>
 					</div>
 					<aside class="notes">
-						The motivation behind this talk is that people believe that a11y is hard, but it actually just requires a different way of thinking.
+						The motivation behind this talk is to give developers the background and resources needed to create inclusive websites and applications.
 					</aside>
 				</section>
 
 				<section>
 					<h1>Overview</h1>
 					<ol>
-						<li class="fragment">What it is and why it is important</li>
+						<li class="fragment">What accessibility is and why it is important</li>
 						<li class="fragment">Foundational knowledge</li>
-						<li class="fragment">How assistive tech interprets our sites</li>
-						<!-- <li class="fragment">My way of approaching accessibility design problems</li> -->
+						<li class="fragment">How assistive tech interprets a website</li>
+						<li class="fragment">Strategies for creating accessible page elements</li>
+						<li class="fragment">Basic Testing Methods</li>
 					</ol>
 				</section>
 
@@ -100,43 +101,15 @@
 							</ol>
 						</aside>
 					</section>
-					<section class="slide__pillars-of-a11y" data-transition="none slide-out">
-						<h2>The 3 Pillars of Accessible Programming</h2>
-						<br>
-						<div class="pillars-of-a11y__content fragment" data-fragment-index="1">
-							<!-- <ul class="flex-row pillars fragment" data-fragment-index="1"> -->
-								<p class="fragment highlight-current-blue grow" data-fragment-index="2">Awareness</p>
-								<p class="fragment highlight-current-blue grow" data-fragment-index="3">Context</p>
-								<p class="fragment highlight-current-blue grow" data-fragment-index="4">Empathy</p>
-							<!-- </ul> -->
-							<!-- <div class=""> -->
-								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="2">Awareness of disabilities, available
-									technology, how assistive tech is used, and the tools available to us.</p>
-								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="3">Realizing what we are trying to convey
-									to the end user in the given context.</p>
-								<p class="fragment fade-in-then-semi-out medium-text" data-fragment-index="4">Putting one's self in the shoes of
-									different people, so we may create more tailored experiences</p>
-							<!-- </div> -->
-						</div>
-						<aside class="notes">
-							Accessible development isn't about just following checklists and technical specs. It's just a change in mindset when creating digital experiences.
-
-							For the change in perspective, there are 3 main things one needs to be effective at a11y development. I call them the
-							"3 Pillars of A11y Programming".
-							<br>
-							<br>
-							...
-							<br>
-							<br>
-							The goal of my talk is to provide more awareness and to give context to potential problems, but empathy must come from within.
-						</aside>
-					</section>
 				</section>
 
 				<!-- Serious Section / Disclaimer -->
 				<section>
 					<section>
-						<h1>RealTalk</h1>
+						<h1>Real Talk</h1>
+						<aside class="notes">
+							Before I go any further, I wanted to talk about why it's critical we get accessibility right.
+						</aside>
 					</section>
 					<section>
 						<p class="large-text ">It is critical we do this right</p>
@@ -145,7 +118,7 @@
 								<li>A11y isn't something we can debate about doing like using the latest javascript framework or using a new programming pattern.</li>
 								<li>It is all of our responsibility, as developers, that we ensure the preservation of a fundamental human right. The access to information and self expression.</li>
 								<li>Remember that all of us are only an accident or a few years of age from needing assistive technology in order live an independent lifestyle.</li>
-								<li>Let's at least ensure the infrastructure we have control over can accommodate everybody.</li>
+								<li>So it's in all of our best interest to create an inclusive infrastructure for our increasingly digital lives.</li>
 							</ul>
 						</aside>
 					</section>
@@ -216,8 +189,10 @@
 
 						<aside class="notes">
 							Our sites need to be robust enough to be used in various contexts such as screen readers, screen enlargers, switches, etc.
+							<br>
+							<br>
+							If you can verify that your site is P.O.U.R, then you likely don't have an accessibility issue.
 
-							An easy to to ensure this is to give many ways to accomplish common tasks like page navigation and search.
 						</aside>
 					</section>
 				</section>
@@ -246,6 +221,7 @@
 				<section>
 					<section>
 						<h1>How does assistive tech work with websites?</h1>
+						<p class="fragment">The browser scans the HTML code and creates both the DOM and the Accessibility Tree.</p>
 					</section>
 					<section>
 						<h2>Accessibility Tree</h2>
@@ -256,9 +232,7 @@
 							</div>
 						</div>
 						<aside class="notes">
-							What the browser does is when it parses an HTML document, it creates both the DOM and the Accessibility Tree.
-							<br>
-							assistive tech uses the Accessibility API in order to interact with the sites
+							Assistive tech reads the Accessibility Tree from top to bottom. This means that the order of content in your document matters a lot to assistive technology.
 						</aside>
 					</section>
 					<section>
@@ -278,6 +252,99 @@
 							</p>
 						</div>
 					</p>
+					<aside class="notes">
+
+					</aside>
+					</section>
+					<section>
+							<h2>WAI-ARIA</h2>
+							<div class="flex-row justify-space-around">
+								<blockquote class="fragment">
+									Web Accessibility Initiative - Accessible Rich Internet Applications
+								</blockquote>
+							</div>
+							<p class="fragment">Powerful tool that allows the developer to directly modify the accessibility tree.</p>
+						</p>
+						</section>
+						<section>
+							<h3>Number 1 Rule for using ARIA</h3>
+							<p class="fragment">No ARIA is better than Bad ARIA</p>
+							<p class="fragment">ARIA can modify an element's state, role, and properties, so using ARIA incorrectly misrepresents an element on a page.</p>
+							<br>
+							<p class="fragment"><i>Example:</i> Imagine a paragraph tag was styled to look like an input.</p>
+						</section>
+				</section>
+				<section>
+					<section>
+						<h1>Strategies for Building Accessible Page Elements</h1>
+					</section>
+					<section>
+						<h2>Use native HTML elements whenever possible</h2>
+						<div class="">
+							<p class="fragment">HTML is accessible by default and will have the proper semantics.</p>
+						</div>
+					</p>
+					<aside class="notes">
+					</aside>
+					</section>
+					<section>
+						<h3>Code Example - Custom Button vs Native Button</h3>
+						<aside class="notes">
+								https://codepen.io/dylansheffer/pen/qBWPGXG
+						</aside>
+					</section>
+					<section>
+						<h2>Consult the WAI-ARIA Authoring Practices first when you need to create a custom element</h2>
+						<br>
+						<a class="fragment" href="https://www.w3.org/TR/wai-aria-practices-1.1">W3C's guide on ARIA authoring</a>
+					</section>
+					<section>
+						<h2>Use Property Selectors Over Classes In CSS</h2>
+						<p class="fragment">It eliminates bloat from your HTML and clarifies your CSS.</p>
+						<div class="flex-row fragment">
+							<div class="">
+								<pre><code>
+// Semantic Selectors
+input:invalid,
+[aria-invalid] {
+	border: 4px dotted #f64100;
+}
+								</code></pre>
+							</div>
+							<div>
+							<pre><code>
+// BEM Styled Class Selectors
+input.input__invalid {
+	border: 4px dotted #f64100;
+}
+							</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>Add Visually Hidden Markup</h2>
+						<p class="fragment">A lot of information is understood visually via context.</p>
+						<p class="fragment">Additional markup can be used to bridge that gap</p>
+					</section>
+					<section>
+						<h3>Code Example - Search Box</h3>
+						<aside class="notes">https://codepen.io/dylansheffer/pen/LYPOrja</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Testing for Accessibility</h1>
+					</section>
+					<section>
+						<h2>Types of Testing</h2>
+						<p class="fragment">Automatic</p>
+						<p class="fragment">Manual</p>
+					</section>
+					<section>
+						<h2>Accessibility Insights By Microsoft</h2>
+					</section>
+					<section>
+						<h3>Demo</h3>
 					</section>
 				</section>
 				<section>
